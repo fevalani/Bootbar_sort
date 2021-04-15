@@ -1,16 +1,21 @@
 const mensagens = [];
 
-const perguntasData = [{text: churros},{text: sábado},{text: cerveja},{text: okok}];
+const perguntasData = [{text: "churros"},{text: "sábado"},{text: "cerveja"},{text: "okok"}];
 
 function mandaAVer(){
-    /*const perguntas = axios.get('#').data;
-    perguntas.then(sorteio);
-    perguntas.catch(babou);*/
+    /*const perguntas = axios.get('#');
+    perguntas.then(aceito);
+    perguntas.catch(erro);*/
 
     sorteio(perguntasData);
 }
 
-function babou(){
+function aceito(valor){
+    const promessa = valor.data;
+    sorteio(promessa);
+}
+
+function erro(){
     alert("Deu Ruim!");
 }
 
@@ -19,16 +24,14 @@ function sorteio(arrayPerguntas){
         mensagens.push(arrayPerguntas[i].text);
     }
 
-    console.log(mensagens);
-
-    const sorteio = mensagens[Math.floor((Math.random() * mensagens.length))];
-    console.log(sorteio);
+    const palavraSorteada = mensagens[Math.floor((Math.random() * mensagens.length))];
+    console.log(palavraSorteada);
 
     const esconder = document.querySelector(".aba-pergunta");
     esconder.classList.add('escondido');
     const mostrar = document.querySelector(".pergunta");
     mostrar.classList.remove('escondido');
-    //mostrar.innerHTML = ;
+    mostrar.innerHTML = palavraSorteada;
 }
 
 function voltar(){
