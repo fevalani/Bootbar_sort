@@ -1,13 +1,9 @@
 const mensagens = [];
 
-const perguntasData = [{text: "churros"},{text: "sábado"},{text: "cerveja"},{text: "okok"}];
-
 function mandaAVer(){
-    /*const perguntas = axios.get('#');
+    const perguntas = axios.get('https://bootbar.maroto.dev/questions');
     perguntas.then(aceito);
-    perguntas.catch(erro);*/
-
-    sorteio(perguntasData);
+    perguntas.catch(erro);
 }
 
 function aceito(valor){
@@ -25,7 +21,7 @@ function sorteio(arrayPerguntas){
     }
 
     const palavraSorteada = mensagens[Math.floor((Math.random() * mensagens.length))];
-    console.log(palavraSorteada);
+    console.log(mensagens);
 
     const esconder = document.querySelector(".aba-pergunta");
     esconder.classList.add('escondido');
